@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>憩梦AI播客</title>
+    <link>https://oycw1688.github.io/qimeng-podcast/</link>
+    <atom:link href="https://oycw1688.github.io/qimeng-podcast/feed.xml" rel="self" type="application/rss+xml"/>
+    <language>zh-cn</language>
+    <description>憩梦AI播客，每天早上用五分钟，帮你梳理全球人工智能领域最重要的新闻：大模型发布、公司动态、融资上市、开源进展与政策监管。免费收听，每日更新。</description>
+    <copyright>© 2026 憩梦</copyright>
+    <lastBuildDate>Sat, 31 Oct 2026 08:24:19 +0800</lastBuildDate>
+    <itunes:author>憩梦</itunes:author>
+    <itunes:summary>憩梦AI播客，每天早上用五分钟，帮你梳理全球人工智能领域最重要的新闻：大模型发布、公司动态、融资上市、开源进展与政策监管。免费收听，每日更新。</itunes:summary>
+    <itunes:owner><itunes:name>欧阳总</itunes:name></itunes:owner>
+    <itunes:image href="https://oycw1688.github.io/qimeng-podcast/cover.jpg"/>
+    <image><url>https://oycw1688.github.io/qimeng-podcast/cover.jpg</url><title>憩梦AI播客</title><link>https://oycw1688.github.io/qimeng-podcast/</link></image>
+    <itunes:category text="Technology"></itunes:category>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:type>episodic</itunes:type>
+    <item>
+      <title>10月31日｜Anthropic递交上市申请，AI融资潮再升温</title>
+      <description>今日头条：Anthropic 递交上市申请，有望成为史上最受关注的科技IPO之一。还有：OpenAI 据报道加速新一轮约300亿美元融资；DeepSeek 据报道完成150亿美元融资，冲刺上海上市；大模型密集发布：GPT-6.1 Terra、Gemini 4 Carbon 与 Genie 4；Mistral 开放 Large 4 权重，开源阵营再添重磅。标注“据报道”的内容未经官方确认。</description>
+      <itunes:summary>今日头条：Anthropic 递交上市申请，有望成为史上最受关注的科技IPO之一。还有：OpenAI 据报道加速新一轮约300亿美元融资；DeepSeek 据报道完成150亿美元融资，冲刺上海上市；大模型密集发布：GPT-6.1 Terra、Gemini 4 Carbon 与 Genie 4；Mistral 开放 Large 4 权重，开源阵营再添重磅。标注“据报道”的内容未经官方确认。</itunes:summary>
+      <link>https://oycw1688.github.io/qimeng-podcast/#ep-2026-10-31</link>
+      <guid isPermaLink="false">憩梦-ai-2026-10-31</guid>
+      <pubDate>Sat, 31 Oct 2026 07:30:00 +0800</pubDate>
+      <enclosure url="https://oycw1688.github.io/qimeng-podcast/episodes/2026-10-31.mp3" length="2486587" type="audio/mpeg"/>
+      <itunes:duration>00:05:06</itunes:duration>
+      <itunes:episode>1</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+      <itunes:image href="https://oycw1688.github.io/qimeng-podcast/cover.jpg"/>
+    </item>
+  </channel>
+</rss>
