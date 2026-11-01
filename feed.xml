@@ -1,34 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>憩梦AI播客</title>
-    <link>https://oycw1688.github.io/qimeng-podcast/</link>
-    <atom:link href="https://oycw1688.github.io/qimeng-podcast/feed.xml" rel="self" type="application/rss+xml"/>
-    <language>zh-cn</language>
-    <description>憩梦AI播客，每天早上用五分钟，帮你梳理全球人工智能领域最重要的新闻：大模型发布、公司动态、融资上市、开源进展与政策监管。免费收听，每日更新。</description>
-    <copyright>© 2026 憩梦</copyright>
-    <lastBuildDate>Sat, 31 Oct 2026 08:24:19 +0800</lastBuildDate>
-    <itunes:author>憩梦</itunes:author>
-    <itunes:summary>憩梦AI播客，每天早上用五分钟，帮你梳理全球人工智能领域最重要的新闻：大模型发布、公司动态、融资上市、开源进展与政策监管。免费收听，每日更新。</itunes:summary>
-    <itunes:owner><itunes:name>欧阳总</itunes:name></itunes:owner>
-    <itunes:image href="https://oycw1688.github.io/qimeng-podcast/cover.jpg"/>
-    <image><url>https://oycw1688.github.io/qimeng-podcast/cover.jpg</url><title>憩梦AI播客</title><link>https://oycw1688.github.io/qimeng-podcast/</link></image>
-    <itunes:category text="Technology"></itunes:category>
-    <itunes:explicit>false</itunes:explicit>
-    <itunes:type>episodic</itunes:type>
-    <item>
-      <title>10月31日｜Anthropic递交上市申请，AI融资潮再升温</title>
-      <description>今日头条：Anthropic 递交上市申请，有望成为史上最受关注的科技IPO之一。还有：OpenAI 据报道加速新一轮约300亿美元融资；DeepSeek 据报道完成150亿美元融资，冲刺上海上市；大模型密集发布：GPT-6.1 Terra、Gemini 4 Carbon 与 Genie 4；Mistral 开放 Large 4 权重，开源阵营再添重磅。标注“据报道”的内容未经官方确认。</description>
-      <itunes:summary>今日头条：Anthropic 递交上市申请，有望成为史上最受关注的科技IPO之一。还有：OpenAI 据报道加速新一轮约300亿美元融资；DeepSeek 据报道完成150亿美元融资，冲刺上海上市；大模型密集发布：GPT-6.1 Terra、Gemini 4 Carbon 与 Genie 4；Mistral 开放 Large 4 权重，开源阵营再添重磅。标注“据报道”的内容未经官方确认。</itunes:summary>
-      <link>https://oycw1688.github.io/qimeng-podcast/#ep-2026-10-31</link>
-      <guid isPermaLink="false">憩梦-ai-2026-10-31</guid>
-      <pubDate>Sat, 31 Oct 2026 07:30:00 +0800</pubDate>
-      <enclosure url="https://oycw1688.github.io/qimeng-podcast/episodes/2026-10-31.mp3" length="2486587" type="audio/mpeg"/>
-      <itunes:duration>00:05:06</itunes:duration>
-      <itunes:episode>1</itunes:episode>
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-      <itunes:image href="https://oycw1688.github.io/qimeng-podcast/cover.jpg"/>
-    </item>
-  </channel>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom">
+ <channel>
+  <title>憩梦AI播客</title>
+  <link>https://podcast.qidream.cn/</link>
+  <atom:link href="https://podcast.qidream.cn/feed.xml" rel="self" type="application/rss+xml"/>
+  <language>zh-cn</language>
+  <description>憩梦AI播客：每天早上 8 点，女主播追梦（东北话）和男主播铭心，用五六分钟吐槽对谈，聊懂全球 AI 圈大事。</description>
+  <copyright>© 2026 憩梦</copyright>
+  <lastBuildDate>Sun, 01 Nov 2026 08:07:47 +0800</lastBuildDate>
+  <itunes:author>铭心追梦</itunes:author>
+  <itunes:summary>憩梦AI播客：每天早上 8 点，女主播追梦（东北话）和男主播铭心，用五六分钟吐槽对谈，聊懂全球 AI 圈大事。</itunes:summary>
+  <itunes:owner><itunes:name>欧阳总</itunes:name></itunes:owner>
+  <itunes:image href="https://podcast.qidream.cn/cover.jpg"/>
+  <image><url>https://podcast.qidream.cn/cover.jpg</url><title>憩梦AI播客</title><link>https://podcast.qidream.cn/</link></image>
+  <itunes:category text="Technology"/>
+  <itunes:explicit>false</itunes:explicit>
+  <itunes:type>episodic</itunes:type>
+  <item>
+   <title>EP.02 11月01日｜钱包缩水、股价跳水，AI 圈周末来了一场冷静期</title>
+   <link>https://podcast.qidream.cn/ep/20261101/</link>
+   <guid isPermaLink="false">qimeng-ai-v3-20261101</guid>
+   <pubDate>Sun, 01 Nov 2026 08:00:00 +0800</pubDate>
+   <description>OpenAI 据报道把融资目标从约300亿美元砍到最多200亿美元；英特尔单日大跌约29%，芯片股集体受挫；四大AI公司支持统一的“不许拿去训练”信号；Claude Ultra 取消5小时限制，谷歌关停 Jules。“以前是闭眼掏钱，现在得先睁眼看看账本。”
+
+章节：
+00:00 开场：周日早上好
+00:37 头条：OpenAI 据报道把融资目标砍到200亿美元
+02:00 第二条：英特尔单日大跌约29%，芯片股集体受挫
+03:05 第三条：四大AI公司支持统一的“不许拿去训练”信号
+03:59 第四条：Claude 套餐改名 Ultra，取消5小时限制
+04:46 第五条：谷歌关停 Jules，并入 Antigravity
+05:25 快讯：小米开源 OCR 小模型 · 可灵融资交割
+05:56 收尾：明天早上见
+
+标注“据报道”的内容尚未得到官方确认，具体以公司公告为准。</description>
+   <itunes:summary>OpenAI 据报道把融资目标从约300亿美元砍到最多200亿美元；英特尔单日大跌约29%，芯片股集体受挫；四大AI公司支持统一的“不许拿去训练”信号；Claude Ultra 取消5小时限制，谷歌关停 Jules。“以前是闭眼掏钱，现在得先睁眼看看账本。”
+
+章节：
+00:00 开场：周日早上好
+00:37 头条：OpenAI 据报道把融资目标砍到200亿美元
+02:00 第二条：英特尔单日大跌约29%，芯片股集体受挫
+03:05 第三条：四大AI公司支持统一的“不许拿去训练”信号
+03:59 第四条：Claude 套餐改名 Ultra，取消5小时限制
+04:46 第五条：谷歌关停 Jules，并入 Antigravity
+05:25 快讯：小米开源 OCR 小模型 · 可灵融资交割
+05:56 收尾：明天早上见
+
+标注“据报道”的内容尚未得到官方确认，具体以公司公告为准。</itunes:summary>
+   <enclosure url="https://podcast.qidream.cn/ep/20261101/qimeng_ai_20261101.mp3" length="6346519" type="audio/mpeg"/>
+   <itunes:duration>06:36</itunes:duration>
+   <itunes:episode>2</itunes:episode>
+   <itunes:image href="https://podcast.qidream.cn/covers/cover_sun.jpg"/>
+   <itunes:explicit>false</itunes:explicit>
+  </item>
+  <item>
+   <title>EP.01 10月31日｜印钞机开美颜？Anthropic 摊开账本冲上市，AI 圈抢钱忙</title>
+   <link>https://podcast.qidream.cn/ep/20261031/</link>
+   <guid isPermaLink="false">qimeng-ai-v3-20261031</guid>
+   <pubDate>Sat, 31 Oct 2026 08:00:00 +0800</pubDate>
+   <description>“这哪是卖模型啊，这是印钞机开了美颜。”Anthropic 招股书摊开账本；OpenAI、DeepSeek 据报道抢着融资；GPT-6.1 Terra、Gemini 4 Carbon、Mistral Large 4 这周发布跟赶集似的。
+
+章节：
+00:00 开场：周末早上好
+00:32 头条：Anthropic 递交上市申请
+02:04 第二条：OpenAI 据报道加速约300亿美元融资
+02:51 第三条：DeepSeek 据报道融资150亿美元
+03:25 第四条：GPT-6.1 Terra、Gemini 4 Carbon 与 Genie 4
+04:35 第五条：Mistral 开放 Large 4 权重
+05:09 快讯：Meta 增发筹资 · 英特尔财报
+05:36 收尾：明天早上见
+
+标注“据报道”的内容尚未得到官方确认，具体以公司公告为准。</description>
+   <itunes:summary>“这哪是卖模型啊，这是印钞机开了美颜。”Anthropic 招股书摊开账本；OpenAI、DeepSeek 据报道抢着融资；GPT-6.1 Terra、Gemini 4 Carbon、Mistral Large 4 这周发布跟赶集似的。
+
+章节：
+00:00 开场：周末早上好
+00:32 头条：Anthropic 递交上市申请
+02:04 第二条：OpenAI 据报道加速约300亿美元融资
+02:51 第三条：DeepSeek 据报道融资150亿美元
+03:25 第四条：GPT-6.1 Terra、Gemini 4 Carbon 与 Genie 4
+04:35 第五条：Mistral 开放 Large 4 权重
+05:09 快讯：Meta 增发筹资 · 英特尔财报
+05:36 收尾：明天早上见
+
+标注“据报道”的内容尚未得到官方确认，具体以公司公告为准。</itunes:summary>
+   <enclosure url="https://podcast.qidream.cn/ep/20261031/qimeng_ai_20261031.mp3" length="6021347" type="audio/mpeg"/>
+   <itunes:duration>06:16</itunes:duration>
+   <itunes:episode>1</itunes:episode>
+   <itunes:image href="https://podcast.qidream.cn/covers/cover_sat.jpg"/>
+   <itunes:explicit>false</itunes:explicit>
+  </item>
+ </channel>
 </rss>
