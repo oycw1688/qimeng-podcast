@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>印钞机开美颜？Anthropic 摊开账本冲上市，AI 圈抢钱忙 · 憩梦AI播客 EP.01</title>
+<meta name="description" content="“这哪是卖模型啊，这是印钞机开了美颜。”Anthropic 招股书摊开账本；OpenAI、DeepSeek 据报道抢着融资；GPT-6.1 Terra、Gemini 4 Carbon、Mistral Large 4 这周发布跟赶集似的。">
+<link rel="canonical" href="https://podcast.qidream.cn/ep/20261031/">
+<link rel="alternate" type="application/rss+xml" title="憩梦AI播客" href="https://podcast.qidream.cn/feed.xml">
+<meta name="theme-color" content="rgb(0,46,56)">
+<style>
+:root{--r:22px;--font:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Noto Sans SC","Microsoft YaHei",sans-serif}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}
+body{font-family:var(--font);color:var(--txt);background:linear-gradient(180deg,var(--soft) 0,#f6f7f7 520px,#f6f7f7 100%);min-height:100vh;-webkit-font-smoothing:antialiased;line-height:1.6}
+.wrap{max-width:760px;margin:0 auto;padding:16px 14px 96px}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;padding:0}
+a{color:var(--p)}
+/* hero */
+.hero{position:relative;overflow:hidden;border-radius:26px;padding:30px 18px 18px;color:var(--h-title);text-align:center;
+ background:radial-gradient(70% 60% at 100% 0%,var(--h-glow),transparent 62%),radial-gradient(60% 55% at 0% 100%,var(--h-glow),transparent 60%),linear-gradient(160deg,var(--h-bot) 0%,var(--h-top) 80%);
+ box-shadow:0 18px 40px -18px var(--shadow),0 2px 6px rgba(0,0,0,.06)}
+.hero:before{content:"";position:absolute;right:-90px;bottom:-90px;width:300px;height:300px;border-radius:50%;
+ background:repeating-radial-gradient(circle,transparent 0 26px,var(--h-wave) 27px 28px);opacity:.9;pointer-events:none}
+.cover{position:relative;width:122px;height:122px;margin:0 auto 18px;border-radius:20px;overflow:hidden;
+ box-shadow:0 14px 30px -10px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.14)}
+.cover img{width:100%;height:100%;display:block}
+.meta{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 12px;font-size:15px;color:var(--h-sub)}
+.pill{background:var(--pill-bg);color:var(--pill-fg);font-weight:800;letter-spacing:.5px;padding:3px 14px;border-radius:999px;font-size:15px}
+h1.swap{animation:ttlIn .45s ease}@keyframes ttlIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+h1{margin:14px 4px 6px;font-size:24px;line-height:1.35;font-weight:800;letter-spacing:.3px;text-wrap:pretty;word-break:normal;line-break:strict}
+.sub{font-size:14px;color:var(--h-sub);margin:0 0 20px}
+.sub b{color:var(--h-accent)}
+/* player */
+.player{position:relative;background:var(--glass);border:1px solid var(--glass-bd);border-radius:20px;padding:14px 16px 12px;backdrop-filter:blur(6px);text-align:left}
+.now{font-size:13px;color:var(--h-sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:8px;min-height:20px}
+.now b{color:var(--h-accent);font-weight:700;margin-right:6px}
+.bar{position:relative;height:22px;cursor:pointer;touch-action:none;display:flex;align-items:center}
+.track{position:relative;width:100%;height:5px;border-radius:6px;background:var(--track);overflow:visible}
+.buf,.fill{position:absolute;left:0;top:0;bottom:0;border-radius:6px}
+.buf{background:var(--track)}
+.fill{background:linear-gradient(90deg,var(--cyan),var(--h-accent));width:0}
+.knob{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.18),0 2px 6px rgba(0,0,0,.3);left:0;transition:transform .15s}
+.knob{transform:scale(0);transition:transform .15s}.bar:hover .knob,.bar:focus .knob,.bar.drag .knob,.playing .knob{transform:scale(1)}
+@media (hover:none){.knob{transform:scale(1)}}
+.ticks i{position:absolute;top:-1px;width:2px;height:8px;background:var(--h-title);opacity:.35;border-radius:2px}
+.times{display:flex;justify-content:space-between;font-size:13px;color:var(--h-sub);font-variant-numeric:tabular-nums;margin-top:2px}
+.ctrl{display:grid;grid-template-columns:52px 1fr auto 1fr 52px;align-items:center;margin-top:8px}
+.skip{justify-self:center;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:var(--h-title);opacity:.92}
+.skip svg{width:30px;height:30px}
+.skip:active{background:var(--glass)}
+.play{width:60px;height:60px;border-radius:50%;background:var(--pill-bg);color:var(--pill-fg);display:grid;place-items:center;margin:0 18px;
+ box-shadow:0 8px 22px -6px rgba(0,0,0,.45),0 0 0 6px var(--glass);transition:transform .12s}
+.play:active{transform:scale(.94)}
+.play svg{width:26px;height:26px}
+.play .i-pause{display:none}.playing .play .i-play{display:none}.playing .play .i-pause{display:block}
+.speed,.dl{height:34px;min-width:52px;border-radius:10px;border:1px solid var(--glass-bd);background:var(--glass);font-weight:700;font-size:14px;color:var(--h-title);display:grid;place-items:center;text-decoration:none}
+.dl svg{width:18px;height:18px}
+.resume:empty{display:none}
+.resume{font-size:12.5px;color:var(--h-sub);text-align:center;margin-top:8px;min-height:18px}
+.resume button{color:var(--h-accent);font-weight:700;margin-left:4px}
+/* cards */
+.card{background:#fff;border-radius:var(--r);padding:20px 18px;margin-top:16px;box-shadow:0 6px 20px -12px var(--shadow),0 1px 2px rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.04)}
+.intro{font-size:16px;line-height:1.9;color:var(--txt);background:rgb(239,234,255);border:2px dashed rgb(88,40,140);box-shadow:none}
+.intro b{color:var(--p)}
+.card h2{margin:0 0 12px;font-size:17px;color:var(--txt);display:flex;align-items:center;gap:8px}
+.card h2:before{content:"";width:4px;height:16px;border-radius:3px;background:var(--p)}
+.card h2 small{margin-left:auto;font-weight:400;font-size:12.5px;color:var(--mute)}
+.chap{display:flex;gap:12px;align-items:center;width:100%;text-align:left;padding:10px 10px;border-radius:14px;transition:background .2s}
+.chap+.chap{margin-top:2px}
+.chap:hover{background:var(--soft)}
+.chap .t{flex:none;font-variant-numeric:tabular-nums;font-size:13px;font-weight:700;color:var(--p);background:var(--soft);padding:2px 8px;border-radius:8px;min-width:54px;text-align:center}
+.chap .n{font-size:12px;color:var(--mute);flex:none;width:42px}
+.chap .s{font-size:15px;color:var(--txt);line-height:1.45}
+.chap.on{background:var(--soft)}
+.chap.on .t{background:var(--p);color:#fff}
+.chap.on .s{font-weight:700;color:var(--p)}
+.news .tagc{display:inline-block;font-size:12.5px;font-weight:800;padding:2px 12px;border-radius:999px;background:var(--navy);color:var(--gold);letter-spacing:.5px}
+.news .tagc.lead{background:var(--gold);color:var(--navy)}
+.news .hd{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.news .go{margin-left:auto;font-size:12.5px;font-weight:700;color:var(--p);background:var(--soft);padding:3px 10px;border-radius:999px;display:flex;gap:4px;align-items:center;font-variant-numeric:tabular-nums}
+.news .go svg{width:12px;height:12px}
+.news h3{margin:0 0 10px;font-size:18px;line-height:1.45;color:var(--p)}
+.news ul{margin:0;padding:0 0 0 14px;list-style:none;border-left:2px solid var(--soft)}
+.news li{position:relative;font-size:15px;line-height:1.75;margin:6px 0;color:var(--txt)}
+.news li:before{content:"";position:absolute;left:-19px;top:.75em;width:8px;height:8px;border-radius:50%;background:var(--p);box-shadow:0 0 0 3px #fff}
+.news li b{color:var(--p)}
+.qt{position:relative;margin:14px 0 0;padding:14px 16px 12px 38px;border-radius:14px;background:var(--soft);font-size:14.5px;line-height:1.7;color:var(--navy);cursor:pointer}
+.qt:before{content:"「";position:absolute;left:10px;top:6px;font-size:24px;font-weight:800;color:#d9a520;line-height:1.2}
+.qt .qx:after{content:"」";font-weight:800;color:#d9a520;margin-left:2px}
+.qt small{display:block;font-size:12px;color:var(--mute);margin-top:4px}
+.quick{background:linear-gradient(160deg,var(--navy),#0d1416);color:#fff;border:0}
+.quick h2{color:#fff}.quick h2:before{background:var(--gold)}
+.quick ul{margin:0;padding:0;list-style:none}
+.quick li{font-size:15px;line-height:1.75;padding:8px 0 8px 22px;position:relative;color:rgba(255,255,255,.9)}
+.quick li+li{border-top:1px solid rgba(255,255,255,.1)}
+.quick li:before{content:"⚡";position:absolute;left:0;top:8px;font-size:13px}
+.src a{display:block;font-size:14px;line-height:1.6;padding:6px 0;color:var(--p);text-decoration:none;border-bottom:1px dashed #e3e8ea}
+.src a span{color:var(--mute);font-size:12.5px;margin-left:6px}
+.src .note{font-size:13px;color:var(--mute);margin:12px 0 0;line-height:1.7}
+.legend{display:flex;gap:14px;font-size:13px;color:var(--mute);margin:-4px 0 10px;flex-wrap:wrap;align-items:center}
+.legend span{display:flex;align-items:center;gap:6px}
+.follow{margin-left:auto;font-size:12.5px;padding:3px 10px;border-radius:999px;border:1px solid var(--soft);background:var(--soft);color:var(--p);font-weight:700}
+.follow.off{background:#fff;color:var(--mute);border-color:#e4e7ea}
+.av{font-style:normal;flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800}
+.av.Z{background:var(--p);color:#fff}.av.M{background:var(--gold);color:var(--navy)}
+.chsep{font-size:12.5px;color:var(--p);font-weight:700;margin:16px 0 6px;display:flex;gap:8px;align-items:center}
+.chsep:after{content:"";flex:1;height:1px;background:var(--soft)}
+.chsep:first-child{margin-top:4px}
+.ln{display:flex;gap:10px;padding:8px 8px;border-radius:14px;cursor:pointer;transition:background .25s,opacity .25s}
+.ln .bd{min-width:0}
+.ln .who{font-size:12px;color:var(--mute);line-height:1.4}
+.ln .who em{font-style:normal;font-variant-numeric:tabular-nums;margin-left:6px;opacity:.8}
+.ln .tx{font-size:15.5px;line-height:1.75;color:var(--txt)}
+.ln:hover{background:#f7f9f9}
+.ln.on{background:var(--soft)}
+.ln.on .tx{color:var(--navy);font-weight:600}
+.ln.on .who{color:var(--p)}
+.ep{display:flex;gap:12px;align-items:center;padding:10px 4px;color:inherit;text-decoration:none}
+.ep+.ep{border-top:1px solid #eef1f2}
+.ep img{width:52px;height:52px;border-radius:12px;flex:none}
+.ep .ph{width:52px;height:52px;border-radius:12px;flex:none;border:1.5px dashed #cfd6d9;display:grid;place-items:center;color:#b3bcc0;font-size:20px}
+.ep .tt{font-size:15px;font-weight:700;line-height:1.4}
+.ep .dd{font-size:12.5px;color:var(--mute)}
+.ep .tag{margin-left:auto;flex:none;font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--soft);color:var(--p)}
+.ep.soon .tt{color:var(--mute);font-weight:500}
+.sub-card{color:#fff;background:linear-gradient(160deg,var(--navy),var(--p));border:0}
+.sub-card h2{color:#fff}.sub-card h2:before{background:var(--gold)}
+.sub-card p{margin:0 0 14px;font-size:14px;color:rgba(255,255,255,.85)}
+.sub-card p b{color:var(--gold)}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:flex;gap:8px;align-items:center;justify-content:center;padding:11px 10px;border-radius:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;font-weight:700;font-size:14.5px;text-decoration:none}
+.btn svg{width:18px;height:18px;flex:none}
+.btn.gold{background:var(--gold);color:var(--navy);border-color:transparent}
+.wx{margin-top:12px;font-size:13px;color:rgba(255,255,255,.85);text-align:center}
+.wx b{color:var(--gold)}
+.foot{font-size:12.5px;color:var(--mute);text-align:center;margin-top:20px;line-height:1.8}
+.foot a{color:var(--mute)}
+.themes{display:flex;justify-content:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+.themes a{width:22px;height:22px;border-radius:50%;display:block;border:2px solid #fff;box-shadow:0 0 0 1px #d5dadc}
+.themes a.on{box-shadow:0 0 0 2px var(--p)}
+/* mini bar */
+.mini{position:fixed;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));transform:translate(-50%,140%);width:min(732px,calc(100% - 24px));
+ display:flex;align-items:center;gap:12px;padding:8px 12px 8px 8px;border-radius:18px;color:var(--h-title);
+ background:linear-gradient(120deg,var(--h-top),var(--h-bot));box-shadow:0 12px 30px -8px rgba(0,0,0,.4);transition:transform .3s;z-index:9}
+.mini.show{transform:translate(-50%,0)}
+.mini img{width:42px;height:42px;border-radius:10px}
+.mini .mt{flex:1;min-width:0;font-size:13px;line-height:1.35}
+.mini .mt div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mini .mt div+div{color:var(--h-sub);font-size:12px}
+.mini .mp{width:42px;height:42px;border-radius:50%;background:var(--pill-bg);color:var(--pill-fg);display:grid;place-items:center;flex:none}
+.mini .mp svg{width:20px;height:20px}
+.mini .mp .i-pause{display:none}.playing .mini .mp .i-play{display:none}.playing .mini .mp .i-pause{display:block}
+.mini .mprog{position:absolute;left:14px;right:14px;bottom:3px;height:2px;border-radius:2px;background:var(--track);overflow:hidden}
+.mini .mprog i{display:block;height:100%;width:0;background:var(--h-accent)}
+
+/* ===== 章节：当前章节条 / 选择器 / 只听本章 ===== */
+.chnow{position:relative;display:flex;align-items:center;gap:11px;width:100%;text-align:left;padding:10px 10px 12px;margin:0 0 10px;border-radius:15px;
+ background:rgba(255,255,255,.09);border:1px solid var(--glass-bd);overflow:hidden;color:var(--h-title)}
+.chnow:active{background:rgba(255,255,255,.14)}
+.chnow .cn{flex:none;width:42px;height:42px;border-radius:12px;background:var(--pill-bg);color:var(--pill-fg);display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1;font-variant-numeric:tabular-nums}
+.chnow .cn b{font-size:17px;font-weight:800}.chnow .cn small{font-size:10px;font-weight:700;opacity:.75;margin-top:3px}
+.chnow .ct{flex:1;min-width:0}
+.chnow .k{font-size:12px;color:var(--h-sub);display:flex;align-items:center;gap:6px;white-space:nowrap}
+.chnow .k .dot{flex:none;width:7px;height:7px;border-radius:50%;background:var(--h-sub);opacity:.7}
+.playing .chnow .k .dot{background:var(--h-accent);opacity:1;animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.45);opacity:.6}}
+.chnow .h{font-size:15.5px;font-weight:800;line-height:1.35;margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.chnow .open{flex:none;align-self:center;font-size:12.5px;font-weight:700;color:var(--h-accent);display:flex;align-items:center;gap:3px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid var(--glass-bd)}
+.chnow .open svg{width:13px;height:13px}
+.chnow .cp{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.08)}
+.chnow .cp i{display:block;height:100%;width:0;background:var(--h-accent);border-radius:0 3px 3px 0;transition:width .25s linear}
+.swap{animation:swap .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes swap{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:none}}
+.flash{animation:flash .7s ease-out}
+@keyframes flash{0%{box-shadow:0 0 0 0 var(--h-accent)}100%{box-shadow:0 0 0 10px transparent}}
+.chctl{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--glass-bd)}
+.cbtn{display:flex;align-items:center;gap:4px;height:34px;padding:0 10px;border-radius:10px;font-size:13px;font-weight:700;color:var(--h-title);background:var(--glass);border:1px solid var(--glass-bd)}
+.cbtn svg{width:16px;height:16px;flex:none}
+.cbtn:disabled{opacity:.35;cursor:default}
+#prevch{justify-self:start}#nextch{justify-self:end}
+.solo{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--h-sub);padding:4px 2px}
+.solo .sw{position:relative;width:36px;height:21px;border-radius:999px;background:var(--track);transition:background .2s;flex:none}
+.solo .sw:after{content:"";position:absolute;left:3px;top:3px;width:15px;height:15px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .2s}
+.solo[aria-checked=true]{color:var(--h-accent)}
+.solo[aria-checked=true] .sw{background:var(--h-accent)}
+.solo[aria-checked=true] .sw:after{transform:translateX(15px)}
+.ticks i{height:9px;top:-2px;opacity:.55}
+.tip{position:absolute;bottom:26px;left:0;transform:translateX(-50%);background:#fff;color:var(--navy);font-size:12px;font-weight:700;line-height:1.3;padding:5px 9px;border-radius:9px;white-space:nowrap;
+ box-shadow:0 6px 16px -4px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .15s;z-index:3}
+.tip em{font-style:normal;color:var(--mute);font-weight:500;margin-left:6px;font-variant-numeric:tabular-nums}
+.tip.show{opacity:1}
+/* 章节列表（底部抽屉） */
+.sheet-bg{position:fixed;inset:0;background:rgba(0,24,28,.45);opacity:0;pointer-events:none;transition:opacity .25s;z-index:19}
+.sheet-bg.show{opacity:1;pointer-events:auto}
+.sheet{position:fixed;left:50%;bottom:0;transform:translate(-50%,105%);width:min(760px,100%);max-height:76vh;display:flex;flex-direction:column;background:#fff;border-radius:22px 22px 0 0;
+ box-shadow:0 -12px 40px -10px rgba(0,0,0,.35);transition:transform .32s cubic-bezier(.2,.8,.2,1);z-index:20;padding-bottom:env(safe-area-inset-bottom)}
+.sheet.show{transform:translate(-50%,0)}
+.sheet .grab{width:40px;height:5px;border-radius:5px;background:#d8dfe0;margin:9px auto 2px}
+.sh-hd{display:flex;align-items:center;gap:10px;padding:8px 18px 10px;border-bottom:1px solid #eef1f2}
+.sh-hd b{font-size:17px;color:var(--txt)}
+.sh-hd span{font-size:12.5px;color:var(--mute)}
+.sh-hd button{margin-left:auto;width:32px;height:32px;border-radius:50%;background:var(--soft);color:var(--p);font-size:20px;line-height:1;display:grid;place-items:center}
+.sh-list{overflow:auto;padding:6px 10px 14px;-webkit-overflow-scrolling:touch}
+.ci{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:10px 10px;border-radius:14px;transition:background .2s}
+.ci+.ci{margin-top:2px}
+.ci:hover{background:#f6f9f9}
+.ci .no{flex:none;width:34px;height:34px;border-radius:10px;background:var(--soft);color:var(--p);display:grid;place-items:center;font-weight:800;font-size:14px;font-variant-numeric:tabular-nums}
+.ci .tx{flex:1;min-width:0;line-height:1.35}
+.ci .tx b{display:block;font-size:15px;color:var(--txt)}
+.ci .tx small{display:block;font-size:12.5px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ci .tm{flex:none;text-align:right;font-size:13px;font-weight:700;color:var(--p);font-variant-numeric:tabular-nums;line-height:1.35}
+.ci .tm small{display:block;font-size:11.5px;font-weight:500;color:var(--mute)}
+.ci .st{flex:none;width:22px;height:22px;display:grid;place-items:center}
+.ci.done .st{border-radius:50%;background:var(--p);color:#fff}
+.ci.done .st:before{content:"";width:9px;height:5px;border:2.2px solid #fff;border-top:0;border-right:0;transform:translateY(-1px) rotate(-45deg)}
+.ci.on{background:var(--soft)}
+.ci.on .no{background:var(--p);color:#fff}
+.ci.on .tx b{color:var(--p)}
+.ci.on .st{background:none;border-radius:0}
+.ci.on .st:before{content:none}
+.eq{display:none;align-items:flex-end;gap:2px;height:14px}
+.ci.on .eq{display:flex}
+.eq i{width:3px;background:var(--p);border-radius:2px;height:5px}
+.playing .ci.on .eq i{animation:eq .9s ease-in-out infinite}
+.eq i:nth-child(2){animation-delay:-.3s!important;height:10px}.eq i:nth-child(3){animation-delay:-.6s!important;height:7px}
+@keyframes eq{0%,100%{height:4px}50%{height:14px}}
+.sh-ft{font-size:12px;color:var(--mute);padding:0 20px 12px;display:flex;justify-content:space-between}
+/* 迷你条章节 */
+.mini .mt{cursor:pointer}
+.mini .mk{display:inline-block;font-size:11px;font-weight:800;padding:0 6px;border-radius:6px;background:var(--pill-bg);color:var(--pill-fg);margin-right:6px;vertical-align:1px;font-variant-numeric:tabular-nums}
+.mini .mt div:first-child{font-weight:700}
+.mini .ml{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;flex:none;background:rgba(255,255,255,.12);color:var(--h-title)}
+.mini .ml svg{width:18px;height:18px}
+body.sheet-open{overflow:hidden}
+@media (min-width:720px){
+ .wrap{padding:28px 20px 120px}
+ .hero{padding:34px 34px 26px;text-align:left}
+ .top{display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:center;margin-bottom:22px}
+ .cover{width:200px;height:200px;margin:0}
+ .meta{justify-content:flex-start}
+ h1{font-size:28px;margin-left:0}
+ .sub{margin-bottom:0}
+ .sub{font-size:15px}
+ .player{padding:16px 22px 14px}
+ .ctrl{max-width:480px;margin-left:auto;margin-right:auto}
+ .card{padding:24px 26px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app">
+ <section class="hero" id="hero">
+  <div class="top"><div class="cover"><img id="cover" alt="憩梦AI播客封面"></div>
+  <div><div class="meta"><span class="pill" id="epnum">EP.01</span><span id="epmeta"></span></div>
+  <h1 id="title"></h1>
+  <p class="sub">全球 AI 大事 · 东北吐槽对谈 · 每天早上 <b>8:00</b> 更新</p></div></div>
+  <div class="player" id="player">
+   <button class="chnow" id="chnow" aria-haspopup="dialog" aria-label="当前章节，点击选择章节">
+    <span class="cn" id="chno"><b>01</b><small>/08</small></span>
+    <span class="ct" id="chtx"><span class="k" id="chk"><i class="dot"></i><span id="chstate">即将播放</span></span><span class="h" id="chname">开场</span></span>
+    <span class="open">章节<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+    <span class="cp"><i id="chprog"></i></span>
+   </button>
+   <div class="bar" id="bar" role="slider" aria-label="播放进度" tabindex="0">
+    <div class="track"><div class="buf" id="buf"></div><div class="ticks" id="ticks"></div><div class="fill" id="fill"></div><div class="knob" id="knob"></div></div>
+    <div class="tip" id="tip"></div>
+   </div>
+   <div class="times"><span id="cur">00:00</span><span id="dur">00:00</span></div>
+   <div class="ctrl">
+    <a class="dl" id="dl" download title="下载 MP3" aria-label="下载 MP3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg></a>
+    <button class="skip" id="back" aria-label="后退 15 秒"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 16a9 9 0 1 0 3-6.7"/><path d="M10 4.5v5h5"/><text x="16.2" y="20" font-size="8.5" font-weight="700" text-anchor="middle" fill="currentColor" stroke="none" font-family="Arial,sans-serif">15</text></svg></button>
+    <button class="play" id="play" aria-label="播放"><svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4.2" height="14" rx="1.2"/><rect x="13.8" y="5" width="4.2" height="14" rx="1.2"/></svg></button>
+    <button class="skip" id="fwd" aria-label="前进 15 秒"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M25 16a9 9 0 1 1-3-6.7"/><path d="M22 4.5v5h-5"/><text x="15.8" y="20" font-size="8.5" font-weight="700" text-anchor="middle" fill="currentColor" stroke="none" font-family="Arial,sans-serif">15</text></svg></button>
+    <button class="speed" id="speed" aria-label="倍速">1×</button>
+   </div>
+   <div class="chctl">
+    <button class="cbtn" id="prevch" aria-label="上一章"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h2v14H6zM20 5.8v12.4a.8.8 0 0 1-1.22.68L9.5 13.1a1.3 1.3 0 0 1 0-2.2l9.28-5.78A.8.8 0 0 1 20 5.8z"/></svg>上一章</button>
+    <button class="solo" id="solo" role="switch" aria-checked="false"><span class="sw"></span>只听本章</button>
+    <button class="cbtn" id="nextch" aria-label="下一章">下一章<svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 5h2v14h-2zM4 5.8v12.4a.8.8 0 0 0 1.22.68l9.28-5.78a1.3 1.3 0 0 0 0-2.2L5.22 5.12A.8.8 0 0 0 4 5.8z"/></svg></button>
+   </div>
+   <div class="resume" id="resume"></div>
+  </div>
+ </section>
+
+ <section class="card intro" id="intro"></section>
+
+ <section class="card"><h2>今日看点<small>点击跳到对应位置</small></h2><div id="chaps"></div></section>
+
+ <div id="news"></div>
+
+ <section class="card quick" id="quick"><h2>其他快讯</h2><ul id="quicklist"></ul></section>
+
+ <section class="card src"><h2>资料来源</h2><div id="srclist"></div><p class="note">标注“据报道”的内容尚未得到官方确认，具体以公司公告为准；文中数字均来自上述报道与公司文件，未作推算。</p></section>
+
+ <section class="card">
+  <h2>对谈文字稿<small>点击任意一句跳转</small></h2>
+  <div class="legend"><span><i class="av Z">梦</i>追梦 · 东北话吐槽</span><span><i class="av M">铭</i>铭心 · 捧哏总结</span><button class="follow" id="follow">跟随播放</button></div>
+  <div id="lines"></div>
+ </section>
+
+ <section class="card"><h2>往期节目</h2><div id="eps"></div></section>
+
+ <section class="card sub-card">
+  <h2>订阅憩梦AI播客</h2>
+  <p>每天早上 <b>8:00</b> 更新，五分钟听懂 AI 圈大事。</p>
+  <div class="btns">
+   <a class="btn gold" id="rss" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="18" r="2.2"/><path d="M4 10.5a9.5 9.5 0 0 1 9.5 9.5h-2.6A6.9 6.9 0 0 0 4 13.1zM4 4.5A15.5 15.5 0 0 1 19.5 20h-2.6A12.9 12.9 0 0 0 4 7.1z"/></svg>RSS 订阅</a>
+   <button class="btn" id="copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg><span>复制订阅链接</span></button>
+  </div>
+  <div class="wx">微信搜索公众号 <b>「憩梦拾光」</b>，每天推送图文版</div>
+ </section>
+
+ <div class="foot" id="foot"></div>
+</div>
+
+<div class="mini" id="mini" aria-hidden="true">
+ <img id="minicover" alt="">
+ <div class="mt" id="minimt"><div id="minititle"></div><div id="miniline"></div></div>
+ <button class="ml" id="minilist" aria-label="章节列表"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1.2" fill="currentColor"/><circle cx="4.5" cy="12" r="1.2" fill="currentColor"/><circle cx="4.5" cy="18" r="1.2" fill="currentColor"/></svg></button>
+ <button class="mp" id="miniplay" aria-label="播放/暂停"><svg class="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg><svg class="i-pause" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4.2" height="14" rx="1.2"/><rect x="13.8" y="5" width="4.2" height="14" rx="1.2"/></svg></button>
+ <div class="mprog"><i id="miniprog"></i></div>
+</div>
+
+<div class="sheet-bg" id="sheetbg"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="章节列表" aria-hidden="true">
+ <div class="grab"></div>
+ <div class="sh-hd"><b>选择章节</b><span id="shsub"></span><button id="sheetx" aria-label="关闭">×</button></div>
+ <div class="sh-list" id="chlist"></div>
+ <div class="sh-ft"><span>点任一章节直接开听</span><span>✓ 已听完</span></div>
+</div>
+
+<audio id="audio" preload="metadata"></audio>
+
+<script>
+const THEMES = {"mon": {"name": "深海蓝", "week": "周一", "light": false, "vars": {"--h-top": "rgb(6,22,48)", "--h-bot": "rgb(12,84,138)", "--h-glow": "rgba(40,140,220,0.45)", "--h-wave": "rgba(122,219,254,0.18)", "--h-title": "rgb(255,255,255)", "--h-sub": "rgb(200,226,250)", "--h-accent": "rgb(255,214,110)", "--pill-bg": "rgb(255,214,110)", "--pill-fg": "rgb(10,30,60)", "--glass": "rgba(255,255,255,0.08)", "--glass-bd": "rgba(255,255,255,0.14)", "--track": "rgba(255,255,255,0.18)", "--p": "#14609e", "--navy": "#0a2c52", "--gold": "#ffd66e", "--cyan": "#9fd4f5", "--txt": "#1a2433", "--mute": "#66788c", "--soft": "#e8f1fa", "--shadow": "rgba(12,60,110,0.16)"}}, "tue": {"name": "公众号深绿", "week": "周二", "light": false, "vars": {"--h-top": "rgb(8,52,36)", "--h-bot": "rgb(31,138,91)", "--h-glow": "rgba(60,200,140,0.45)", "--h-wave": "rgba(168,240,207,0.18)", "--h-title": "rgb(255,255,255)", "--h-sub": "rgb(210,245,226)", "--h-accent": "rgb(255,214,110)", "--pill-bg": "rgb(255,214,110)", "--pill-fg": "rgb(11,74,51)", "--glass": "rgba(255,255,255,0.08)", "--glass-bd": "rgba(255,255,255,0.14)", "--track": "rgba(255,255,255,0.18)", "--p": "#1a7d52", "--navy": "#0b4a33", "--gold": "#ffd66e", "--cyan": "#a8f0cf", "--txt": "#1b2e24", "--mute": "#627d70", "--soft": "#e6f5ec", "--shadow": "rgba(20,90,50,0.16)"}}, "wed": {"name": "琥珀橙", "week": "周三", "light": false, "vars": {"--h-top": "rgb(70,26,6)", "--h-bot": "rgb(178,86,18)", "--h-glow": "rgba(255,150,60,0.45)", "--h-wave": "rgba(255,216,160,0.18)", "--h-title": "rgb(255,255,255)", "--h-sub": "rgb(255,226,200)", "--h-accent": "rgb(255,226,150)", "--pill-bg": "rgb(255,240,214)", "--pill-fg": "rgb(110,40,6)", "--glass": "rgba(255,255,255,0.08)", "--glass-bd": "rgba(255,255,255,0.14)", "--track": "rgba(255,255,255,0.18)", "--p": "#a84c0c", "--navy": "#5a2206", "--gold": "#ffdf9e", "--cyan": "#ffc896", "--txt": "#2e2016", "--mute": "#86705e", "--soft": "#fdf0e3", "--shadow": "rgba(120,60,10,0.16)"}}, "thu": {"name": "石墨灰", "week": "周四", "light": false, "vars": {"--h-top": "rgb(18,20,24)", "--h-bot": "rgb(66,72,82)", "--h-glow": "rgba(150,160,175,0.45)", "--h-wave": "rgba(200,208,220,0.18)", "--h-title": "rgb(255,255,255)", "--h-sub": "rgb(206,212,222)", "--h-accent": "rgb(255,206,96)", "--pill-bg": "rgb(255,206,96)", "--pill-fg": "rgb(24,26,30)", "--glass": "rgba(255,255,255,0.08)", "--glass-bd": "rgba(255,255,255,0.14)", "--track": "rgba(255,255,255,0.18)", "--p": "#3b4450", "--navy": "#15181d", "--gold": "#ffce60", "--cyan": "#c2c9d3", "--txt": "#1f2328", "--mute": "#6f7680", "--soft": "#eff1f4", "--shadow": "rgba(30,34,40,0.16)"}}, "fri": {"name": "勃艮第酒红", "week": "周五", "light": false, "vars": {"--h-top": "rgb(46,6,12)", "--h-bot": "rgb(150,28,38)", "--h-glow": "rgba(230,80,80,0.45)", "--h-wave": "rgba(255,190,180,0.18)", "--h-title": "rgb(255,255,255)", "--h-sub": "rgb(255,214,214)", "--h-accent": "rgb(255,214,110)", "--pill-bg": "rgb(255,214,110)", "--pill-fg": "rgb(90,12,22)", "--glass": "rgba(255,255,255,0.08)", "--glass-bd": "rgba(255,255,255,0.14)", "--track": "rgba(255,255,255,0.18)", "--p": "#981b29", "--navy": "#3d0610", "--gold": "#ffd66e", "--cyan": "#f4b6b6", "--txt": "#2e1a1c", "--mute": "#876e71", "--soft": "#fbeced", "--shadow": "rgba(110,20,30,0.16)"}}, "sat": {"name": "孔雀青", "week": "周六", "light": false, "vars": {"--h-top": "rgb(0,46,56)", "--h-bot": "rgb(0,128,138)", "--h-glow": "rgba(40,210,210,0.45)", "--h-wave": "rgba(170,250,245,0.18)", "--h-title": "rgb(255,255,255)", "--h-sub": "rgb(200,244,244)", "--h-accent": "rgb(255,214,110)", "--pill-bg": "rgb(255,214,110)", "--pill-fg": "rgb(0,60,70)", "--glass": "rgba(255,255,255,0.08)", "--glass-bd": "rgba(255,255,255,0.14)", "--track": "rgba(255,255,255,0.18)", "--p": "#006d76", "--navy": "#003a42", "--gold": "#ffd66e", "--cyan": "#9ae6e4", "--txt": "#15292b", "--mute": "#638083", "--soft": "#e2f4f4", "--shadow": "rgba(0,80,90,0.16)"}}, "sun": {"name": "香槟米金", "week": "周日", "light": true, "vars": {"--h-top": "rgb(252,247,236)", "--h-bot": "rgb(232,212,170)", "--h-glow": "rgba(255,236,190,0.45)", "--h-wave": "rgba(196,150,70,0.18)", "--h-title": "rgb(30,36,52)", "--h-sub": "rgb(110,96,72)", "--h-accent": "rgb(176,108,20)", "--pill-bg": "rgb(30,40,60)", "--pill-fg": "rgb(255,226,150)", "--glass": "rgba(30,36,52,0.06)", "--glass-bd": "rgba(30,36,52,0.14)", "--track": "rgba(30,36,52,0.18)", "--p": "#8a5a0e", "--navy": "#4a3208", "--gold": "#f4d78a", "--cyan": "#e3c98e", "--txt": "#2b2419", "--mute": "#857760", "--soft": "#f8f1e2", "--shadow": "rgba(110,80,20,0.16)"}}};
+const EP = {"date": "2026-10-31", "duration": 376.29, "audio": "qimeng_ai_20261031.mp3", "rate": "+13%", "speakers": {"Z": {"name": "追梦", "role": "主播 · 东北吐槽", "voice": "zh-CN-liaoning-XiaobeiNeural"}, "M": {"name": "铭心", "role": "搭档 · 捧哏总结", "voice": "zh-CN-YunxiNeural"}}, "chapters": [{"title": "开场", "sub": "周末早上好", "start": 0.0}, {"title": "头条", "sub": "Anthropic 递交上市申请", "start": 32.64}, {"title": "第二条", "sub": "OpenAI 据报道加速约300亿美元融资", "start": 124.56}, {"title": "第三条", "sub": "DeepSeek 据报道融资150亿美元", "start": 171.12}, {"title": "第四条", "sub": "GPT-6.1 Terra、Gemini 4 Carbon 与 Genie 4", "start": 205.21}, {"title": "第五条", "sub": "Mistral 开放 Large 4 权重", "start": 275.87}, {"title": "快讯", "sub": "Meta 增发筹资 · 英特尔财报", "start": 309.05}, {"title": "收尾", "sub": "明天早上见", "start": 336.35}], "lines": [{"i": 0, "ch": 0, "speaker": "M", "name": "铭心", "start": 8.4, "end": 16.85, "text": "早上好，欢迎收听憩梦AI播客，我是铭心，铭记的铭，心意的心。今天是2026年10月31日，星期六。"}, {"i": 1, "ch": 0, "speaker": "Z", "name": "追梦", "start": 17.3, "end": 22.66, "text": "我是追梦！老铁们早上好哈。咱俩名字凑一块儿，就是铭心追梦。"}, {"i": 2, "ch": 0, "speaker": "M", "name": "铭心", "start": 23.11, "end": 27.05, "text": "每天五分钟，听懂AI圈大事，顺便听追梦吐槽。"}, {"i": 3, "ch": 0, "speaker": "Z", "name": "追梦", "start": 27.5, "end": 31.74, "text": "那必须的！这周的瓜老大了，咱直接整头条。"}, {"i": 4, "ch": 1, "speaker": "Z", "name": "追梦", "start": 32.64, "end": 41.72, "text": "Anthropic，就是整Claude大模型那家，本周正式向美国证券交易委员会递交了上市招股书，要上纳斯达克。"}, {"i": 5, "ch": 1, "speaker": "M", "name": "铭心", "start": 42.17, "end": 47.09, "text": "招股书一出来，大家最关心的就是：纯做大模型的公司，到底挣不挣钱？"}, {"i": 6, "ch": 1, "speaker": "Z", "name": "追梦", "start": 47.54, "end": 57.87, "text": "三百多页，头一回把账本整个儿摊桌上了。2026年上半年，收入大约163亿美元；去年同期才11.6亿美元左右。"}, {"i": 7, "ch": 1, "speaker": "M", "name": "铭心", "start": 58.32, "end": 60.31, "text": "等会儿，这是一年翻了十几倍？"}, {"i": 8, "ch": 1, "speaker": "Z", "name": "追梦", "start": 60.76, "end": 69.28, "text": "可不咋地！按它披露的成本算，毛利率大约85%。这哪是卖模型啊，这是印钞机开了美颜。"}, {"i": 9, "ch": 1, "speaker": "M", "name": "铭心", "start": 69.73, "end": 70.47, "text": "那有没有隐忧？"}, {"i": 10, "ch": 1, "speaker": "Z", "name": "追梦", "start": 70.92, "end": 81.84, "text": "有哇。增速在放缓：第二季度环比增长约144%，第三季度降到约47%。火箭还在飞，就是油门松了点儿。"}, {"i": 11, "ch": 1, "speaker": "M", "name": "铭心", "start": 82.29, "end": 84.64, "text": "算力呢？这可是最烧钱的地方。"}, {"i": 12, "ch": 1, "speaker": "Z", "name": "追梦", "start": 85.09, "end": 99.46, "text": "文件披露，Anthropic承诺向SpaceX旗下的算力业务采购最高1205亿美元的GPU算力，期限到2029年；跟亚马逊之间还有至少1100亿美元的长期承诺。"}, {"i": 13, "ch": 1, "speaker": "M", "name": "铭心", "start": 99.91, "end": 101.8, "text": "挣得快，花得也一点不手软。"}, {"i": 14, "ch": 1, "speaker": "Z", "name": "追梦", "start": 102.25, "end": 107.11, "text": "左手进账右手下单，钱在兜里还没焐热乎呢，就进机房了。"}, {"i": 15, "ch": 1, "speaker": "M", "name": "铭心", "start": 107.56, "end": 108.46, "text": "那估值能到多少？"}, {"i": 16, "ch": 1, "speaker": "Z", "name": "追梦", "start": 108.91, "end": 118.19, "text": "发行价和估值还没定，分析师预估从一万亿美元到两万亿美元不等。据报道，最快可能11月中旬挂牌。"}, {"i": 17, "ch": 1, "speaker": "M", "name": "铭心", "start": 118.64, "end": 123.66, "text": "一句话：这场上市的定价，很可能成为整个AI行业估值的风向标。"}, {"i": 18, "ch": 2, "speaker": "M", "name": "铭心", "start": 124.56, "end": 127.32, "text": "说到估值，OpenAI那边是不是坐不住了？"}, {"i": 19, "ch": 2, "speaker": "Z", "name": "追梦", "start": 127.77, "end": 141.57, "text": "那可不。据路透社报道，OpenAI正加快推进一轮约300亿美元的私募融资，想赶在Anthropic上市之前把投资人锁定，估值可能超过1.4万亿美元。"}, {"i": 20, "ch": 2, "speaker": "M", "name": "铭心", "start": 142.02, "end": 142.84, "text": "这是要抢跑啊。"}, {"i": 21, "ch": 2, "speaker": "Z", "name": "追梦", "start": 143.29, "end": 153.24, "text": "跟过年抢年货似的，生怕人家先把钱包掏空了。据报道，软银和阿布扎比的MGX等老股东都在洽谈参与。"}, {"i": 22, "ch": 2, "speaker": "Z", "name": "追梦", "start": 153.54, "end": 161.3, "text": "OpenAI还跟投资人说，年化收入已经约500亿美元，预计年底升到700亿美元。"}, {"i": 23, "ch": 2, "speaker": "M", "name": "铭心", "start": 161.75, "end": 167.23, "text": "拉回来提醒一句：这些数字都来自知情人士，官方还没确认，咱先当消息听。"}, {"i": 24, "ch": 2, "speaker": "Z", "name": "追梦", "start": 167.68, "end": 170.22, "text": "对，瓜可以吃，别急着当真。"}, {"i": 25, "ch": 3, "speaker": "Z", "name": "追梦", "start": 171.12, "end": 182.75, "text": "再唠唠国内。据《华尔街日报》报道，DeepSeek完成第二轮约150亿美元融资，几乎是最初目标的两倍，计划明年初在上海上市。"}, {"i": 26, "ch": 3, "speaker": "M", "name": "铭心", "start": 183.2, "end": 185.28, "text": "本来想要一碗饭，人家给端来两碗。"}, {"i": 27, "ch": 3, "speaker": "Z", "name": "追梦", "start": 185.73, "end": 192.99, "text": "哈哈，这饭量可以！据彭博社报道，腾讯和宁德时代是这轮的主要出资方之一。"}, {"i": 28, "ch": 3, "speaker": "M", "name": "铭心", "start": 193.44, "end": 196.8, "text": "至于为啥选上海，报道里没细说，咱也不瞎猜。"}, {"i": 29, "ch": 3, "speaker": "Z", "name": "追梦", "start": 197.25, "end": 204.31, "text": "必须的，不知道的咱不整。要是顺利，DeepSeek可能比OpenAI更早登陆资本市场。"}, {"i": 30, "ch": 4, "speaker": "M", "name": "铭心", "start": 205.21, "end": 208.23, "text": "聊完钱，聊聊模型，这周发布挺密集。"}, {"i": 31, "ch": 4, "speaker": "Z", "name": "追梦", "start": 208.68, "end": 214.04, "text": "跟赶集似的！OpenAI在10月26日先整了一个新模型。"}, {"i": 32, "ch": 4, "speaker": "M", "name": "铭心", "start": 214.49, "end": 216.66, "text": "就是GPT-6.1 Terra。"}, {"i": 33, "ch": 4, "speaker": "Z", "name": "追梦", "start": 217.11, "end": 227.98, "text": "对，主打看图推理、操作电脑和写作，已经在ChatGPT、Codex和开发者接口上线，上下文窗口超过一百万个token。"}, {"i": 34, "ch": 4, "speaker": "M", "name": "铭心", "start": 228.43, "end": 230.88, "text": "一百万个token，一口气能读多少东西啊。"}, {"i": 35, "ch": 4, "speaker": "Z", "name": "追梦", "start": 231.33, "end": 241.43, "text": "反正比我读说明书有耐心。按OpenAI自己公布的测试成绩，它在终端操作类基准上的得分比上一代提高了一倍多。"}, {"i": 36, "ch": 4, "speaker": "M", "name": "铭心", "start": 241.88, "end": 243.84, "text": "注意，是它自己公布的成绩。"}, {"i": 37, "ch": 4, "speaker": "Z", "name": "追梦", "start": 244.29, "end": 247.36, "text": "对喽，自个儿出题自个儿判卷，咱听听就好。"}, {"i": 38, "ch": 4, "speaker": "M", "name": "铭心", "start": 247.81, "end": 251.55, "text": "谷歌那边呢？10月28日公布的是Gemini 4 Carbon。"}, {"i": 39, "ch": 4, "speaker": "Z", "name": "追梦", "start": 252.0, "end": 261.17, "text": "对，谷歌说它是目前在网络安全和长周期任务上最强的模型，头一批先开放给网络安全防御人员。"}, {"i": 40, "ch": 4, "speaker": "M", "name": "铭心", "start": 261.62, "end": 270.19, "text": "我补一个：前一天，谷歌DeepMind还预览了世界模型Genie 4，能实时生成可互动的虚拟场景，目前只对少量测试者开放。"}, {"i": 41, "ch": 4, "speaker": "Z", "name": "追梦", "start": 270.64, "end": 274.97, "text": "好东西都先锁小屋里，咱普通人只能扒着窗户瞅。"}, {"i": 42, "ch": 5, "speaker": "Z", "name": "追梦", "start": 275.87, "end": 287.44, "text": "开源这边也整了个大的。法国公司Mistral在10月29日公开了Mistral Large 4的模型权重，参数规模约一万亿，谁都能下载。"}, {"i": 43, "ch": 5, "speaker": "M", "name": "铭心", "start": 287.89, "end": 289.89, "text": "一万亿参数，说开放就开放。"}, {"i": 44, "ch": 5, "speaker": "Z", "name": "追梦", "start": 290.34, "end": 304.44, "text": "敞亮！就是你家硬盘和显卡得先答应。Mistral说，它在编程类测试上明显进步；也坦白讲，模型在网络攻击方面可能被滥用，所以正在加强安全护栏。"}, {"i": 45, "ch": 5, "speaker": "M", "name": "铭心", "start": 304.89, "end": 308.15, "text": "能力越强，护栏越得跟上，这个态度挺实在。"}, {"i": 46, "ch": 6, "speaker": "Z", "name": "追梦", "start": 309.05, "end": 312.28, "text": "最后快讯，铭心，你来，我喘口气。"}, {"i": 47, "ch": 6, "speaker": "M", "name": "铭心", "start": 312.73, "end": 322.26, "text": "好。第一条，Meta据报道计划通过增发股票筹集资金，继续加码AI基础设施，英伟达和AMD也宣布参与投资。"}, {"i": 48, "ch": 6, "speaker": "Z", "name": "追梦", "start": 322.71, "end": 335.45, "text": "第二条，英特尔第三季度收入165亿美元，同比增长了21%，数据中心和AI业务增长78%。老牌选手也支棱起来了。"}, {"i": 49, "ch": 7, "speaker": "M", "name": "铭心", "start": 336.35, "end": 341.37, "text": "一句话总结今天：一边是上市和融资在提速，一边是模型密集发布。"}, {"i": 50, "ch": 7, "speaker": "Z", "name": "追梦", "start": 341.82, "end": 351.83, "text": "估值能不能撑住，最后还得看真实收入和算力成本。Anthropic要真像报道说的那样11月挂牌，这定价就是一场大考。"}, {"i": 51, "ch": 7, "speaker": "M", "name": "铭心", "start": 352.28, "end": 358.03, "text": "也提醒一下，文中标注“据报道”的内容还没有得到官方确认，具体以公司公告为准。"}, {"i": 52, "ch": 7, "speaker": "Z", "name": "追梦", "start": 358.48, "end": 364.5, "text": "觉得有意思就订阅，转发给关心AI的老铁。明天早上八点，咱接着唠！"}, {"i": 53, "ch": 7, "speaker": "M", "name": "铭心", "start": 364.95, "end": 365.45, "text": "明天见！"}], "bgm": {"music": "原创合成（daily_v3/bgm/make_music.py，numpy，120 BPM 明快轻电子，无采样素材）", "bpm": 120, "intro_solo": 8.0, "offset": 8.0, "bed_db": -5.5, "sidechain": "threshold 0.015, ratio 6, attack 25ms, release 800ms", "outro_hold": 5.0, "outro_fade": 4.5, "loudness": "-16 LUFS / TP -1.5"}, "num": 1, "title": "印钞机开美颜？Anthropic 摊开账本冲上市，AI 圈抢钱忙", "highlights": [[1, "Anthropic 招股书：上半年收入约163亿美元，毛利率约85%"], [2, "OpenAI、DeepSeek 据报道同步加速融资"], [4, "GPT-6.1 Terra、Gemini 4 Carbon、Genie 4 密集发布"], [5, "Mistral Large 4 开放权重，约一万亿参数"]], "news": [{"ch": 1, "tag": "头条", "title": "Anthropic 递交上市申请，有望成为史上最受关注的科技IPO之一", "points": ["本周向美国证券交易委员会递交招股书，计划在纳斯达克上市，文件三百多页。", "2026年上半年收入约 <b>163亿美元</b>，去年同期约11.6亿美元；按披露成本计算，毛利率约 <b>85%</b>。", "增速在放缓：第二季度环比增长约144%，第三季度降到约47%。", "承诺向 SpaceX 旗下算力业务采购最高 <b>1205亿美元</b> GPU 算力（期限到2029年），与亚马逊至少1100亿美元长期承诺。", "发行价和估值未定，分析师预估1万亿到2万亿美元；据报道最快11月中旬挂牌。"], "quote": {"name": "追梦", "text": "这哪是卖模型啊，这是印钞机开了美颜。", "start": 60.76}}, {"ch": 2, "tag": "第 02 条", "title": "OpenAI 据报道加速新一轮约300亿美元融资", "points": ["据路透社报道，OpenAI 加快推进约 <b>300亿美元</b> 私募融资，想赶在 Anthropic 上市前锁定投资人，估值可能超过1.4万亿美元。", "据报道，软银和阿布扎比的 MGX 等老股东在洽谈参与。", "向投资人表示年化收入约500亿美元，预计年底升到700亿美元。"], "quote": {"name": "追梦", "text": "瓜可以吃，别急着当真。", "start": 167.68}}, {"ch": 3, "tag": "第 03 条", "title": "DeepSeek 据报道完成150亿美元融资，冲刺上海上市", "points": ["据《华尔街日报》报道，DeepSeek 完成第二轮约 <b>150亿美元</b> 融资，几乎是最初目标的两倍，计划明年初在上海上市。", "据彭博社报道，腾讯和宁德时代是这轮的主要出资方之一。"], "quote": {"name": "铭心", "text": "本来想要一碗饭，人家给端来两碗。", "start": 183.2}}, {"ch": 4, "tag": "第 04 条", "title": "大模型密集发布：GPT-6.1 Terra、Gemini 4 Carbon 与 Genie 4", "points": ["10月26日，OpenAI 发布 GPT-6.1 Terra：看图推理、操作电脑、写作，上下文窗口超过 <b>一百万 token</b>。", "按 OpenAI 自己公布的成绩，终端操作类基准得分比上一代提高一倍多。", "10月28日，谷歌公布 Gemini 4 Carbon，称在网络安全和长周期任务上最强，首批开放给网络安全防御人员。", "谷歌 DeepMind 预览世界模型 Genie 4，可实时生成可互动的虚拟场景，目前只对少量测试者开放。"], "quote": {"name": "追梦", "text": "自个儿出题自个儿判卷，咱听听就好。", "start": 244.29}}, {"ch": 5, "tag": "第 05 条", "title": "Mistral 开放 Large 4 权重，开源阵营再添重磅", "points": ["10月29日，Mistral 公开 Mistral Large 4 模型权重，参数规模约 <b>一万亿</b>，任何人都可以下载。", "编程类测试明显进步；也坦言模型可能被用于网络攻击，正在加强安全护栏。"], "quote": {"name": "追梦", "text": "就是你家硬盘和显卡得先答应。", "start": 290.34}}], "quick": ["Meta 据报道计划通过增发股票筹集资金，继续加码 AI 基础设施，英伟达和 AMD 也宣布参与投资。", "英特尔第三季度收入165亿美元，同比增长21%，数据中心和 AI 业务增长78%。"], "intro": [["“这哪是卖模型啊，", 0], ["这是印钞机开了美颜", 1], ["。”Anthropic 招股书摊开账本；OpenAI、DeepSeek 据报道", 0], ["抢着融资", 1], ["；GPT-6.1 Terra、Gemini 4 Carbon、Mistral Large 4 这周发布", 0], ["跟赶集似的", 1], ["。", 0]], "sources": [["CNBC", "https://www.cnbc.com/2026/10/30/anthropic-ipo-s1-revenue-compute.html"], ["路透社", "https://www.investing.com/news/stock-market-news/exclusiveopenai-seeks-to-accelerate-fundraising-ahead-of-anthropic-ipo-sources-say-4958511"], ["华尔街日报", "https://www.wsj.com/tech/ai/chinese-ai-startup-deekseek-raises-15-billion-ahead-of-potential-ipo-f7fe3a49"], ["The Model Press", "https://themodelpress.com/news/2026/10/ai-news-this-week-october-24-30-2026"], ["Distill", "https://www.distillintelligence.com/briefings/ai-leaders-2026-10-30"]], "feed": "https://podcast.qidream.cn/feed.xml", "site": "https://podcast.qidream.cn/", "url": "https://podcast.qidream.cn/ep/20261031/", "key": "sat", "bytes": 6021347, "base": "../../", "episodes": [{"date": "2026-11-01", "num": 2, "title": "钱包缩水、股价跳水，AI 圈周末来了一场冷静期", "dur": 396.62, "key": "sun", "url": "../20261101/"}, {"date": "2026-10-31", "num": 1, "title": "印钞机开美颜？Anthropic 摊开账本冲上市，AI 圈抢钱忙", "dur": 376.29, "key": "sat", "url": "../20261031/"}]};
+(function(){
+const $ = id => document.getElementById(id), A = $('audio'), app = document.documentElement;
+const ORDER = ['mon','tue','wed','thu','fri','sat','sun'];
+const WEEK = '日一二三四五六';
+const [Y, M, D] = EP.date.split('-').map(Number);
+const wd = new Date(Date.UTC(Y, M - 1, D)).getUTCDay();   // 0=周日
+const autoKey = ORDER[(wd + 6) % 7];  // 按节目日期的星期自动选配色（周一深海蓝…周日香槟米金）；?theme= 只用于预览切换
+const q = new URLSearchParams(location.search).get('theme');
+const key = THEMES[q] ? q : autoKey, T = THEMES[key];
+for (const [k, v] of Object.entries(T.vars)) app.style.setProperty(k, v);
+document.querySelector('meta[name=theme-color]').content = T.vars['--h-top'];
+const BASE = EP.base || '';   // 站点根目录相对路径：首页 ''，往期页 '../../'
+const cover = BASE + 'covers/cover_' + key + '.jpg';
+const fmt = s => { s = Math.max(0, Math.floor(s || 0)); return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); };
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const dateCN = `${Y}年${M}月${D}日`, weekCN = '星期' + WEEK[wd];
+const durMin = Math.round(EP.duration / 60);
+const epTitle = `憩梦AI播客 ${EP.date.replace(/-/g,'')} AI早报`;
+
+$('cover').src = cover; $('minicover').src = cover;
+$('epnum').textContent = 'EP.' + String(EP.num).padStart(2, '0');
+$('epmeta').textContent = `${dateCN} · ${weekCN} · ${durMin} 分钟`;
+function chHead(ci) { const nw = (EP.news || []).find(n => n.ch === ci); if (nw) return nw.short || nw.title.split("，")[0]; const c = CH_ALL()[ci]; if (ci === 0 || ci === CH_ALL().length - 1 || !c) return EP.title; return c.title + '：' + c.sub; }
+function CH_ALL() { return EP.chapters || []; }
+let titleShown = EP.title;
+function setTitle(txt) { if (txt === titleShown) return; titleShown = txt; const h = $('title'); h.textContent = txt; h.classList.remove('swap'); void h.offsetWidth; h.classList.add('swap'); }
+$('title').textContent = EP.title;
+document.title = EP.title + ' · 憩梦AI播客';
+$('intro').innerHTML = EP.intro.map(([t, b]) => b ? `<b>${esc(t)}</b>` : esc(t)).join('');
+$('dur').textContent = fmt(EP.duration);
+$('dl').href = EP.audio;
+$('rss').href = EP.feed;
+$('foot').innerHTML = '本节目内容由 AI 辅助整理与播报 · 憩梦AI播客<br>配色：' + T.week + ' · ' + T.name + '<div class="themes" id="themes"></div>';
+$('themes').innerHTML = ORDER.map(k => `<a href="?theme=${k}" title="${THEMES[k].week} · ${THEMES[k].name}" class="${k===key?'on':''}" style="background:linear-gradient(135deg,${THEMES[k].vars['--h-top']},${THEMES[k].vars['--h-bot']})"></a>`).join('');
+
+// chapters
+const CH = EP.chapters, L = EP.lines;
+$('chaps').innerHTML = EP.highlights.map(([ci, t]) => `<button class="chap" data-c="${ci}"><span class="t">${fmt(CH[ci].start)}</span><span class="n">${esc(CH[ci].title)}</span><span class="s">${esc(t)}</span></button>`).join('');
+const PLAYI = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>';
+$('news').innerHTML = EP.news.map(n => `<section class="card news" id="ch${n.ch}"><div class="hd"><span class="tagc ${n.tag==='头条'?'lead':''}">${esc(n.tag)}</span><button class="go" data-c="${n.ch}">${PLAYI}听这段 ${fmt(CH[n.ch].start)}</button></div>
+  <h3>${esc(n.title)}</h3><ul>${n.points.map(p => `<li>${p}</li>`).join('')}</ul>
+  ${n.quote ? `<div class="qt" data-t="${n.quote.start}"><span class="qx">${esc(n.quote.text)}</span><small>—— ${esc(n.quote.name)} · ${fmt(n.quote.start)}</small></div>` : ''}</section>`).join('');
+$('quicklist').innerHTML = EP.quick.map(q => `<li>${esc(q)}</li>`).join('');
+$('srclist').innerHTML = EP.sources.map(([n, u]) => `<a href="${u}" target="_blank" rel="noopener">${esc(n)}<span>${esc(new URL(u).hostname.replace(/^www\./,''))}</span></a>`).join('');
+$('ticks').innerHTML = CH.slice(1).map(c => `<i style="left:${(c.start / EP.duration * 100).toFixed(2)}%"></i>`).join('');
+// transcript
+let html = '', lastCh = -1;
+L.forEach((l, i) => {
+  if (l.ch !== lastCh) { lastCh = l.ch; html += `<div class="chsep" data-c="${l.ch}">${esc(CH[l.ch].title)} · ${esc(CH[l.ch].sub)}</div>`; }
+  html += `<div class="ln" data-i="${i}"><i class="av ${l.speaker}">${l.speaker === 'Z' ? '梦' : '铭'}</i><div class="bd"><div class="who">${esc(l.name)}<em>${fmt(l.start)}</em></div><div class="tx">${esc(l.text)}</div></div></div>`;
+});
+$('lines').innerHTML = html;
+const lineEls = [...document.querySelectorAll('.ln')], chapEls = [...document.querySelectorAll('.chap')];
+// chapter helpers
+const NCH = CH.length, pad2 = n => String(n).padStart(2, '0');
+const chEnd = i => i < NCH - 1 ? CH[i + 1].start : EP.duration;
+const chLen = i => chEnd(i) - CH[i].start;
+const chName = i => `${CH[i].title}：${CH[i].sub}`;
+const chapAt = t => { let c = 0; for (let i = 0; i < NCH; i++) if (t >= CH[i].start - 0.05) c = i; return c; };
+const fmtD = s => { s = Math.round(s); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+$('chlist').innerHTML = CH.map((c, i) => `<button class="ci" data-k="${i}"><span class="no">${pad2(i + 1)}</span><span class="tx"><b>${esc(c.title)}</b><small>${esc(c.sub)}</small></span><span class="tm">${fmt(c.start)}<small>时长 ${fmtD(chLen(i))}</small></span><span class="st"><span class="eq"><i></i><i></i><i></i></span></span></button>`).join('');
+const ciEls = [...document.querySelectorAll('.ci')];
+$('shsub').textContent = `共 ${NCH} 章 · ${fmt(EP.duration)}`;
+// past episodes：EP.episodes 由 build_site_v3.py 填（新→旧，含本期），每项 {date,num,title,dur,key,url}
+const EPS = EP.episodes || [];
+const epRow = e => { const [y, m, d] = e.date.split('-').map(Number), w = new Date(Date.UTC(y, m - 1, d)).getUTCDay(), me = e.date === EP.date;
+  return `<a class="ep" href="${me ? '#' : e.url}" ${me ? 'aria-current="page"' : ''}><img src="${BASE}covers/cover_${e.key}.jpg" alt=""><div><div class="tt">EP.${String(e.num).padStart(2, '0')} · ${esc(e.title)}</div><div class="dd">${y}年${m}月${d}日 · 星期${WEEK[w]} · ${Math.round(e.dur / 60)} 分钟</div></div>${me ? '<span class="tag">本期</span>' : (e === EPS[0] ? '<span class="tag">最新</span>' : '')}</a>`; };
+$('eps').innerHTML = EPS.map(epRow).join('') + (EPS.length < 2 ? `<div class="ep soon"><div class="ph">+</div><div><div class="tt">更多往期节目，每天早上 8:00 自动更新到这里</div><div class="dd">历史节目会按日期排列</div></div></div>` : '');
+
+// audio
+A.src = EP.audio;
+const PKEY = 'qimeng:pos:' + EP.date, SKEY = 'qimeng:speed';
+const SPEEDS = [1, 1.25, 1.5, 2];
+let spd = Number(localStorage.getItem(SKEY)) || 1; if (!SPEEDS.includes(spd)) spd = 1;
+const setSpeed = v => { spd = v; A.playbackRate = v; A.defaultPlaybackRate = v; $('speed').textContent = v + '×'; localStorage.setItem(SKEY, v); posState(); };
+setSpeed(spd);
+const dur = () => (isFinite(A.duration) && A.duration > 0) ? A.duration : EP.duration;
+const saved = Number(localStorage.getItem(PKEY)) || 0;
+if (saved > 5 && saved < EP.duration - 5) {
+  $('resume').innerHTML = `上次听到 ${fmt(saved)}<button id="resbtn">继续收听</button><button id="resfrom0" style="opacity:.7">从头开始</button>`;
+  A.addEventListener('loadedmetadata', () => { if (A.currentTime < 1) A.currentTime = saved; render(); }, {once: true});
+  $('resbtn').onclick = () => { A.currentTime = saved; A.play(); $('resume').textContent = ''; };
+  $('resfrom0').onclick = () => { A.currentTime = 0; localStorage.removeItem(PKEY); $('resume').textContent = ''; render(); };
+}
+let soloStopped = null, lastNatCh = null, lastT = null;
+const seek = t => { soloStopped = null; lastNatCh = null; lastT = null; A.currentTime = Math.min(Math.max(0, t), dur() - 0.05); render(); };
+const savePos = () => { if (A.currentTime > 3 && !A.ended) localStorage.setItem(PKEY, A.currentTime.toFixed(1)); };
+// 已听完：按真实播放时长累计（跳转不计），听满本章 85% 打勾
+const DKEY = 'qimeng:done:' + EP.date, acc = new Array(NCH).fill(0);
+let done = new Set(JSON.parse(localStorage.getItem(DKEY) || '[]'));
+const markDone = i => { if (!done.has(i)) { done.add(i); localStorage.setItem(DKEY, JSON.stringify([...done])); paintList(); } };
+function paintList() { ciEls.forEach((e, i) => { e.classList.toggle('on', i === curCh); e.classList.toggle('done', done.has(i) && i !== curCh); }); }
+// 章节选择器
+const sheet = $('sheet'), sheetbg = $('sheetbg');
+function openSheet() { paintList(); sheet.classList.add('show'); sheetbg.classList.add('show'); sheet.setAttribute('aria-hidden', 'false'); document.body.classList.add('sheet-open');
+  const on = ciEls[Math.max(0, curCh)]; if (on) on.scrollIntoView({block: 'nearest'}); }
+function closeSheet() { sheet.classList.remove('show'); sheetbg.classList.remove('show'); sheet.setAttribute('aria-hidden', 'true'); document.body.classList.remove('sheet-open'); }
+function goChapter(i, play = true) { i = Math.min(NCH - 1, Math.max(0, i)); seek(CH[i].start); if (play) A.play(); $('chnow').classList.remove('flash'); void $('chnow').offsetWidth; $('chnow').classList.add('flash'); }
+ciEls.forEach(e => e.onclick = () => { goChapter(+e.dataset.k); closeSheet(); });
+$('chnow').onclick = openSheet; $('minilist').onclick = openSheet; $('minimt').onclick = openSheet;
+$('sheetx').onclick = closeSheet; sheetbg.onclick = closeSheet;
+addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
+$('prevch').onclick = () => goChapter(chapAt(A.currentTime) - 1);
+$('nextch').onclick = () => goChapter(chapAt(A.currentTime) + 1);
+// 只听本章
+let solo = localStorage.getItem('qimeng:solo') === '1';
+const paintSolo = () => $('solo').setAttribute('aria-checked', solo);
+$('solo').onclick = () => { solo = !solo; localStorage.setItem('qimeng:solo', solo ? '1' : '0'); paintSolo(); lastNatCh = null; if (!solo) soloStopped = null; };
+paintSolo();
+function soloStop(ci) { soloStopped = ci; A.pause(); $('resume').innerHTML = `「只听本章」已在第 ${ci + 1} 章结束处暂停<button id="soloNext">听下一章</button>`; $('soloNext').onclick = () => A.play(); }
+function soloCheck() {
+  if (!solo || A.paused || soloStopped !== null) return;
+  const t = A.currentTime, ci = chapAt(t);
+  if (lastNatCh === null) lastNatCh = ci;
+  if (ci < NCH - 1 && t >= CH[ci + 1].start - 0.45) soloStop(ci);
+  else if (ci === lastNatCh + 1) { const prev = lastNatCh; A.currentTime = CH[ci].start - 0.3; soloStop(prev); }
+  else lastNatCh = ci;
+}
+setInterval(soloCheck, 100);
+// 进度条：hover / 触摸时显示章节名
+const tip = $('tip');
+function showTip(r) { const t = r * dur(), c = chapAt(t), bw = $('bar').clientWidth;
+  tip.innerHTML = `第 ${c + 1} 章 · ${esc(CH[c].title)}<em>${fmt(t)}</em>`; tip.classList.add('show');
+  const w = tip.offsetWidth, x = Math.min(bw - w / 2, Math.max(w / 2, r * bw)); tip.style.left = x + 'px'; }
+const hideTip = () => tip.classList.remove('show');
+const toggle = () => A.paused ? A.play() : A.pause();
+$('play').onclick = toggle; $('miniplay').onclick = toggle;
+$('back').onclick = () => seek(A.currentTime - 15);
+$('fwd').onclick = () => seek(A.currentTime + 15);
+$('speed').onclick = () => setSpeed(SPEEDS[(SPEEDS.indexOf(spd) + 1) % SPEEDS.length]);
+document.querySelectorAll('[data-c]').forEach(e => { e.style.cursor = 'pointer'; e.onclick = () => goChapter(+e.dataset.c); });
+document.querySelectorAll('.qt').forEach(e => e.onclick = () => { seek(+e.dataset.t); A.play(); });
+lineEls.forEach(e => e.onclick = () => { seek(L[+e.dataset.i].start); A.play(); });
+$('copy').onclick = async () => { const sp = $('copy').querySelector('span');
+  try { await navigator.clipboard.writeText(EP.feed); sp.textContent = '已复制'; } catch (e) { prompt('复制订阅链接', EP.feed); }
+  setTimeout(() => sp.textContent = '复制订阅链接', 1800); };
+let follow = true;
+$('follow').onclick = () => { follow = !follow; $('follow').classList.toggle('off', !follow); $('follow').textContent = follow ? '跟随播放' : '不跟随'; };
+
+// draggable progress (pointer events: mouse + touch)
+const bar = $('bar'); let dragging = false, dragT = 0;
+const ratioAt = e => { const r = bar.getBoundingClientRect(); return Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)); };
+bar.addEventListener('pointerdown', e => { dragging = true; bar.classList.add('drag'); bar.setPointerCapture(e.pointerId); dragT = ratioAt(e) * dur(); paint(dragT); showTip(ratioAt(e)); });
+bar.addEventListener('pointermove', e => { if (dragging) { dragT = ratioAt(e) * dur(); paint(dragT); } if (dragging || e.pointerType === 'mouse') showTip(ratioAt(e)); });
+bar.addEventListener('pointerleave', () => { if (!dragging) hideTip(); });
+const endDrag = e => { if (!dragging) return; dragging = false; bar.classList.remove('drag'); seek(dragT); if (!e || e.pointerType !== 'mouse') setTimeout(hideTip, 700); };
+bar.addEventListener('pointerup', endDrag); bar.addEventListener('pointercancel', endDrag);
+bar.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') { seek(A.currentTime - 5); e.preventDefault(); } if (e.key === 'ArrowRight') { seek(A.currentTime + 5); e.preventDefault(); } });
+document.addEventListener('keydown', e => {
+  if (e.target.closest('input,textarea')) return;
+  if (e.code === 'Space' && e.target === document.body) { e.preventDefault(); toggle(); }
+  if (e.key === 'j') seek(A.currentTime - 15); if (e.key === 'l') seek(A.currentTime + 15);
+});
+
+let curLine = -1, curCh = -1, chapterShown = null, lastSave = 0, lastUserScroll = 0;
+// 文字稿在屏幕内时才自动跟随滚动，在播放器处点播放不会把页面带走
+let linesVisible = false; new IntersectionObserver(([en]) => { linesVisible = en.isIntersecting; }, {rootMargin: '-15% 0px -15% 0px'}).observe($('lines'));
+addEventListener('wheel', () => lastUserScroll = Date.now(), {passive: true});
+addEventListener('touchmove', () => lastUserScroll = Date.now(), {passive: true});
+function paint(t) {
+  const p = Math.min(1, t / dur()) * 100;
+  $('fill').style.width = p + '%'; $('knob').style.left = p + '%'; $('miniprog').style.width = p + '%';
+  $('cur').textContent = fmt(t); bar.setAttribute('aria-valuenow', Math.round(t));
+}
+function render() {
+  const t = A.currentTime; if (!dragging) paint(t);
+  let li = -1; for (let i = 0; i < L.length; i++) { if (t >= L[i].start - 0.05) li = i; else break; }
+  let ci = 0; for (let i = 0; i < CH.length; i++) if (t >= CH[i].start - 0.05) ci = i;
+  if (li !== curLine) {
+    if (curLine >= 0) lineEls[curLine].classList.remove('on');
+    curLine = li;
+    if (li >= 0) {
+      lineEls[li].classList.add('on');
+      $('miniline').textContent = L[li].name + '：' + L[li].text;
+      if (follow && linesVisible && !A.paused && Date.now() - lastUserScroll > 4000) lineEls[li].scrollIntoView({block: 'center', behavior: 'smooth'});
+    }
+  }
+  if (ci !== curCh) {
+    const changed = curCh !== -1 || chapterShown !== ci; curCh = ci;
+    chapEls.forEach(e => e.classList.toggle('on', +e.dataset.c === ci || (ci === 3 && +e.dataset.c === 2)));
+    $('chno').innerHTML = `<b>${pad2(ci + 1)}</b><small>/${pad2(NCH)}</small>`;
+    $('chname').textContent = chName(ci);
+    if (curLine >= 0 || ci > 0) setTitle(chHead(ci));
+    $('minititle').innerHTML = `<span class="mk">${ci + 1}/${NCH}</span>${esc(chName(ci))}`;
+    if (chapterShown !== ci) { if (chapterShown !== null) for (const el of [$('chtx'), $('chno'), $('minititle')]) { el.classList.remove('swap'); void el.offsetWidth; el.classList.add('swap'); } chapterShown = ci; msMeta(ci); }
+    paintList(); $('prevch').disabled = ci === 0; $('nextch').disabled = ci === NCH - 1;
+  }
+  $('chstate').textContent = `第 ${ci + 1} 章 / 共 ${NCH} 章 · ` + (soloStopped !== null && A.paused ? '本章播完' : A.paused ? (t < 0.5 ? '即将播放' : '已暂停') : '正在播放');
+  $('chprog').style.width = Math.min(100, Math.max(0, (t - CH[ci].start) / chLen(ci) * 100)) + '%';
+  if (A.buffered.length) $('buf').style.width = (A.buffered.end(A.buffered.length - 1) / dur() * 100) + '%';
+}
+A.addEventListener('timeupdate', () => {
+  const t = A.currentTime;
+  if (!A.paused && lastT !== null) { const d = t - lastT; if (d > 0 && d < 1 + 1.5 * A.playbackRate) { const c = chapAt(lastT); acc[c] += d; if (acc[c] >= 0.85 * chLen(c)) markDone(c); } }
+  lastT = A.paused ? null : t;
+  soloCheck(); render();
+  if (Date.now() - lastSave > 2000) { lastSave = Date.now(); savePos(); }
+});
+A.addEventListener('seeking', () => { lastT = null; });
+A.addEventListener('seeked', savePos);
+addEventListener('pagehide', savePos);
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') savePos(); });
+A.addEventListener('progress', render);
+A.addEventListener('loadedmetadata', () => { $('dur').textContent = fmt(A.duration); bar.setAttribute('aria-valuemax', Math.round(A.duration)); posState(); render(); });
+A.addEventListener('play', () => { if (soloStopped !== null) { const n = soloStopped; soloStopped = null; if (n < NCH - 1 && chapAt(A.currentTime) <= n) A.currentTime = CH[n + 1].start; } lastNatCh = null; lastT = null; document.body.classList.add('playing'); $('play').setAttribute('aria-label', '暂停'); $('resume').textContent = ''; render(); ms('playing'); });
+A.addEventListener('pause', () => { document.body.classList.remove('playing'); $('play').setAttribute('aria-label', '播放'); savePos(); render(); ms('paused'); });
+A.addEventListener('ended', () => { localStorage.removeItem(PKEY); if (acc[NCH - 1] >= 0.6 * chLen(NCH - 1)) markDone(NCH - 1); });
+A.addEventListener('ratechange', posState);
+A.addEventListener('seeked', posState);
+
+// Media Session (lock screen / earphone controls)
+let msArt = '';
+function msMeta(ci) { if (!('mediaSession' in navigator) || !msArt) return;
+  const md = {title: `第${ci + 1}章 ${chName(ci)}`, artist: '追梦 & 铭心 · 憩梦AI播客', album: EP.title, artwork: [{src: msArt, sizes: '600x600', type: 'image/jpeg'}],
+    chapterInfo: CH.map((c, i) => ({title: chName(i), startTime: c.start, artwork: [{src: msArt, sizes: '600x600', type: 'image/jpeg'}]}))};
+  try { navigator.mediaSession.metadata = new MediaMetadata(md); } catch (e) { delete md.chapterInfo; navigator.mediaSession.metadata = new MediaMetadata(md); } }
+function ms(state) { if ('mediaSession' in navigator) navigator.mediaSession.playbackState = state; }
+function posState() { try { if ('mediaSession' in navigator && navigator.mediaSession.setPositionState && isFinite(A.duration)) navigator.mediaSession.setPositionState({duration: A.duration, playbackRate: A.playbackRate, position: Math.min(A.currentTime, A.duration)}); } catch (e) {} }
+if ('mediaSession' in navigator) {
+  const art = new URL(cover, location.href).href;
+  msArt = art; msMeta(Math.max(0, curCh));
+  const h = {play: () => A.play(), pause: () => A.pause(),
+    seekbackward: e => seek(A.currentTime - (e.seekOffset || 15)), seekforward: e => seek(A.currentTime + (e.seekOffset || 15)),
+    seekto: e => seek(e.seekTime), previoustrack: () => goChapter(chapAt(A.currentTime) - 1, !A.paused),
+    nexttrack: () => goChapter(chapAt(A.currentTime) + 1, !A.paused)};
+  for (const [k, f] of Object.entries(h)) { try { navigator.mediaSession.setActionHandler(k, f); } catch (e) {} }
+}
+// mini player when hero leaves the viewport
+new IntersectionObserver(([en]) => { const show = !en.isIntersecting && en.boundingClientRect.top < 0; $('mini').classList.toggle('show', show); $('mini').setAttribute('aria-hidden', !show); }).observe($('player'));
+render();
+window.__player = {audio: A, theme: key, goChapter, openSheet, closeSheet, chapAt, get curCh() { return curCh; }, get done() { return [...done]; }};
+})();
+</script>
+</body>
+</html>
